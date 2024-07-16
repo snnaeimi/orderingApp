@@ -25,15 +25,15 @@
         </div>
     
         <div class="modal-payment">
-            <button>x</button>
+            <button class="closeBtn">x</button>
             <h2>Enter Card Detail</h2>
-            <label for=""></label>
-            <input type="text" placeholder="Enter your name">
-            <label for=""></label>
-            <input type="text" placeholder="Enter card number">
-            <label for=""></label>
-            <input type="text" placeholder="Enter CVV">
-            <button>Pay</button>
+            <div class="modal-input">
+                <input type="text" placeholder="Enter your name" id="cardName" class="cardInput">
+                <input type="text" placeholder="Enter card number" id="cardNumber" class="cardInput"> 
+                <input type="text" placeholder="Enter CVV" id="cardCVV" class="cardInput">
+            </div>
+            
+            <button class="payBtn" id="pay-btn">Pay</button>
         </div>
     </div>
    
