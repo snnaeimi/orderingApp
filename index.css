@@ -4,7 +4,7 @@ body{
     padding: 0;
     justify-content: center;
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace
 }
 
 .headerImg{
@@ -16,17 +16,98 @@ body{
     position: absolute;
     color: whitesmoke;
     top: 150px;
-    left: 200px;
+    left: 170px;
 }
 
 .restaurantDesc{
     position: absolute;
     color: whitesmoke;
     top: 200px;
-    left: 160px;
+    left: 120px;
 }
 
+/* Menu */
+
+.menu{
+    padding-top: 20px;
+    width: 600px;
+    height: 500px;
+}
+
+.itemMenu{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    text-align: left ;
+    border-bottom: 2px solid #D2D2D2;
+    width: 500px;
+    margin-left: 50px;
+    margin-top: 30px;
+    /* border-bottom-width: 500px; */
+}
+
+
+.order-img{
+    margin-top: 20px;
+    margin-right: 30px;
+    padding: 0;
+    font-size: 70px;
+}
+
+.ingredient{
+    color: #8B8B8B;
+}
+
+.addBtn{
+    position: absolute;
+    right: 35%;
+    margin-top: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;   
+    border-color: #D2D2D2;
+}
+
+/* ordering data price */
+
+.price-data{
+    margin-top: 200px;
+}
+
+.order-price{
+    width: 508px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.customer-order, .total-price {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.customer-order{
+    width: 500px;
+    border-bottom: 1px solid black;
+}
+
+.removeOrderBtn{
+    margin-right: 365px;
+    border: none;
+    background-color: white;
+    color: #BBBBBB;
+}
+
+.total-price{
+    justify-content: space-between;
+}
+
+/* Modal for paying by cart */
+
 .modal-payment{
+    display: none;
     width: 495px;
     padding: 0 30px 30px 30px;
     border: 2px solid black;
