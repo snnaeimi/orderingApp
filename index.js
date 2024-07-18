@@ -3,34 +3,6 @@ import { menuArray } from "./data.js";
 const menuEl = document.getElementById("menu-container");
 const totalPriceEl = document.getElementById("price-data");
 
-/*
-<div class="itemMenu">
-    <p class="order-img">🍕</p>
-    <div class="order-description">
-        <h3>Pizza</h3>
-        <p class="ingredient">pepperoni, mushrom, mozarella</p>
-        <p>$14</p> 
-    </div>
-                
-    <button class="addBtn">+</button>              
-</div> 
-            */
-
-/*
-    <h2>Your Order</h2>
-        <div class="order-price">
-            <div class="customer-order">
-                <p>Pizza</p>
-                <button class="removeOrderBtn">remove</button>
-                <p>$14</p>
-            </div>
-            <div class="total-price">
-                <p>Total price: </p>
-                <p>$26</p>
-            </div>
-        </div>
-*/
-
 function renderMenu(menuArr) {
   for (let i = 0; i < menuArr.length; i++) {
     menuEl.innerHTML += `
@@ -75,8 +47,10 @@ function addOrder(e) {
 
     return `
                 <div class="customer-order">
+                    <div class="orderRecipeDesc">
                     <p>${food.name}</p>
-                    <button class="removeOrderBtn" data-food-id="${food.id}" id="removeOrderBtn">remove</button>
+                    <button class="removeOrderBtn" id="removeOrderBtn" data-food-id="${food.id}">remove</button>
+                    </div>                 
                     <p>$${foodTotalPrice}</p>
                 </div>
     `;
@@ -85,10 +59,13 @@ function addOrder(e) {
   totalPriceEl.innerHTML = `
                             <h2>Your Order</h2>
                             <div class="order-price">
+                                <div class="orderPriceShow">
                                 ${orderedFoods.join("\n")}
+                                </div>
+                                
                                 <div class="total-price">
                                     <p>Total price: </p>
-                                    <p>$${totalPrice}</p>
+                                    <p class="totalPriceShow">$${totalPrice}</p>
                                 </div>
                             </div> 
                         `;
@@ -98,6 +75,7 @@ function addOrder(e) {
 
 function removeOrder(e) {
   const orderedFoodId = Number(e.target.dataset.foodId);
+  console.log("orderFoodId:", orderedFoodId);
 
   delete order[orderedFoodId];
 
@@ -112,20 +90,25 @@ function removeOrder(e) {
 
     return `
                 <div class="customer-order">
-                    <p>${food.name}</p>
-                    <button class="removeOrderBtn" data-food-id="${food.id}" id="removeOrderBtn">remove</button>
-                    <p>$${foodTotalPrice}</p>
+                    <div class="orderRecipeDesc">
+                        <p>${food.name}</p>
+                        <button class="removeOrderBtn" id="removeOrderBtn" data-food-id="${food.id}">remove</button>
+                    </div>                 
+                <p>$${foodTotalPrice}</p>
                 </div>
     `;
   });
 
-  totalPriceEl.innerHTML = `
+  totalPriceEl.innerHTML = `                          
                             <h2>Your Order</h2>
                             <div class="order-price">
+                                <div class="orderPriceShow">
                                 ${orderedFoods.join("\n")}
+                                </div>
+                                
                                 <div class="total-price">
                                     <p>Total price: </p>
-                                    <p>$${totalPrice}</p>
+                                    <p class="totalPriceShow">$${totalPrice}</p>
                                 </div>
                             </div> 
                         `;
@@ -139,6 +122,8 @@ document.querySelectorAll(".addBtn").forEach((button) => {
   button.addEventListener("click", addOrder);
 });
 
-document.querySelectorAll(".removeOrderBtn").forEach((button) => {
-  button.addEventListener("click", removeOrder);
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("removeOrderBtn")) {
+    removeOrder(e);
+  }
 });

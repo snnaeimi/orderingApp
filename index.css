@@ -78,6 +78,8 @@ body{
     width: 508px;
     display: flex;
     flex-direction: column;
+    /* margin-right: 50px; */
+    /* border: 1px solid black; */
     margin-left: 50px;
 }
 
@@ -86,22 +88,31 @@ body{
     flex-direction: row;
     font-size: 18px;
     font-weight: bold;
+    margin-left: 0px;
+}
+
+.total-price{
+    border-top: 1px solid black;
 }
 
 .customer-order{
     width: 500px;
-    border-bottom: 1px solid black;
+    justify-content: space-between;
+}
+
+.orderRecipeDesc{
+    display: flex;
 }
 
 .removeOrderBtn{
-    margin-right: 365px;
     border: none;
     background-color: white;
     color: #BBBBBB;
 }
 
-.total-price{
-    justify-content: space-between;
+.totalPriceShow{
+    margin-left: 340px;
+    
 }
 
 /* Modal for paying by cart */
